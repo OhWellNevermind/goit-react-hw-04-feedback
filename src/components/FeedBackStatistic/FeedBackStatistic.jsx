@@ -1,4 +1,5 @@
 import propTypes from 'prop-types';
+import { List, ListItem } from '@mui/material';
 
 export const FeedBackStatistic = ({
   good,
@@ -8,13 +9,13 @@ export const FeedBackStatistic = ({
   positivePercentage,
 }) => {
   return (
-    <div>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {total}</p>
-      <p>Positive feedback: {positivePercentage}%</p>
-    </div>
+    <List>
+      <ListItem>Good: {good}</ListItem>
+      <ListItem>Neutral: {neutral}</ListItem>
+      <ListItem>Bad: {bad}</ListItem>
+      <ListItem>Total: {total}</ListItem>
+      <ListItem>Positive feedback: {positivePercentage}%</ListItem>
+    </List>
   );
 };
 
