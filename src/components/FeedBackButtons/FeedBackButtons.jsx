@@ -1,27 +1,44 @@
-export const FeedBackButtons = ({
-  onGoodBtnClick,
-  onBadBtnClick,
-  onNeutralBtnClick,
-}) => {
+import propTypes from 'prop-types';
+
+export const FeedBackButtons = ({ addFeedBack }) => {
   return (
     <div>
       <ul>
         <li>
-          <button value="good" onClick={onGoodBtnClick}>
+          <button
+            onClick={evt => {
+              addFeedBack(evt.target.value);
+            }}
+            value="good"
+          >
             Good
           </button>
         </li>
         <li>
-          <button onClick={onNeutralBtnClick} value="neutral">
+          <button
+            onClick={evt => {
+              addFeedBack(evt.target.value);
+            }}
+            value="neutral"
+          >
             Neutral
           </button>
         </li>
         <li>
-          <button onClick={onBadBtnClick} value="bad">
+          <button
+            onClick={evt => {
+              addFeedBack(evt.target.value);
+            }}
+            value="bad"
+          >
             Bad
           </button>
         </li>
       </ul>
     </div>
   );
+};
+
+FeedBackButtons.propTypes = {
+  addFeedBack: propTypes.func,
 };

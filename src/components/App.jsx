@@ -11,21 +11,9 @@ export class App extends Component {
     bad: 0,
   };
 
-  onGoodFeedBack = evt => {
+  addFeedBack = feedBack => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-  };
-
-  onNeutralFeedBack = evt => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-
-  onBadFeedBack = evt => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
+      [feedBack]: prevState[feedBack] + 1,
     }));
   };
 
@@ -54,11 +42,7 @@ export class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedBackButtons
-            onGoodBtnClick={this.onGoodFeedBack}
-            onBadBtnClick={this.onBadFeedBack}
-            onNeutralBtnClick={this.onNeutralFeedBack}
-          ></FeedBackButtons>
+          <FeedBackButtons addFeedBack={this.addFeedBack}></FeedBackButtons>
         </Section>
         {isFeedBack ? (
           <Section title="Statistics">
