@@ -27,24 +27,14 @@ export class App extends Component {
     return Math.round((good / this.countTotalFeedback()) * 100);
   };
 
-  checkFeedBack = () => {
-    const { good, bad, neutral } = this.state;
-    if (good || bad || neutral) {
-      return true;
-    }
-
-    return false;
-  };
-
   render() {
     const { good, bad, neutral } = this.state;
-    const isFeedBack = this.checkFeedBack();
     return (
       <>
         <Section title="Please leave feedback">
           <FeedBackButtons addFeedBack={this.addFeedBack}></FeedBackButtons>
         </Section>
-        {isFeedBack ? (
+        {this.countTotalFeedback() ? (
           <Section title="Statistics">
             <FeedBackStatistic
               good={good}
